@@ -119,36 +119,6 @@ public class DBActivity extends AppCompatActivity {
         });
 
 
-        SharedPreferences pref = getSharedPreferences("isFirst", Activity.MODE_PRIVATE);
-        boolean first = pref.getBoolean("isFirst", false);
-
-
-        if(first==false){
-            SharedPreferences.Editor editor = pref.edit();
-            editor.putBoolean("isFirst",true);
-            editor.commit();
-
-            realm.beginTransaction();
-            MarkerItem place = realm.createObject(MarkerItem.class);
-            place.setTitle("석기정 안양점");
-            place.setAdd("경기도 안양시 만안구 안양1동 674-48");
-            place.setPhone_num("031-444-6426");
-            place.setLat(37.399928);
-            place.setLon(126.921276);
-
-            MarkerItem place1 = realm.createObject(MarkerItem.class);
-            place1.setTitle("청사초롱");
-            place1.setAdd("경기도 안양시 만안구 안양1동 674-91");
-            place1.setPhone_num("031-442-1144");
-            place1.setLat(37.399964);
-            place1.setLon(126.922786);
-
-            realm.commitTransaction();
-
-            //앱 최초 실행시 하고 싶은 작업
-        }
-
-
 
 
 

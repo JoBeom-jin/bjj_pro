@@ -8,10 +8,13 @@ import android.widget.Button;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.example.myapplication.models.MarkerItem;
 import com.example.myapplication.models.Place;
 
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Collections;
+import java.util.Date;
 import java.util.List;
 import java.util.Timer;
 import java.util.TimerTask;
@@ -32,6 +35,12 @@ public class RecommendActivity extends AppCompatActivity {
     TextView place_name;
     TextView phone_name;
     TextView addr_name;
+    TextView date_text;
+
+    long mNow;
+    Date mDate;
+    SimpleDateFormat mFormat = new SimpleDateFormat("yyyy-MM-dd");
+
 
     private Realm realm = Realm.getDefaultInstance();
 
@@ -91,6 +100,7 @@ public class RecommendActivity extends AppCompatActivity {
         place_name = (TextView) findViewById(R.id.place_name);
         addr_name = (TextView) findViewById(R.id.addr_name);
         phone_name = (TextView) findViewById(R.id.phone_name);
+        date_text = (TextView) findViewById(R.id.date_text);
 
 
         menu_bt1 = (Button) findViewById(R.id.menu_bt1);
@@ -107,20 +117,90 @@ public class RecommendActivity extends AppCompatActivity {
         menu_bt5.setOnClickListener(menu5_click);
 
 
-        final RealmResults<Place> results = realm.where(Place.class).findAll();
+        date_text.setText(getTime());
+
+        String text = date_text.getText().toString();
+
+        String text2 = text.substring(text.length()-1);
 
 
-        final List<Place> placeList = new ArrayList<>();
-        for (Place place : results) {
+        final RealmResults<MarkerItem> results = realm.where(MarkerItem.class).findAll();
+
+
+        final List<MarkerItem> placeList = new ArrayList<>();
+        for (MarkerItem place : results) {
             placeList.add(place);
         }
 
 
         if(placeList.size()>0) {
-            Collections.shuffle(placeList);
-            place_name.setText(placeList.get(0).getName());
-            addr_name.setText(placeList.get(0).getAddress());
-            phone_name.setText(placeList.get(0).getPhone());
+
+            switch (text2){
+                case "0":
+                    place_name.setText(placeList.get(0).getTitle());
+                    addr_name.setText(placeList.get(0).getAdd());
+                    phone_name.setText(placeList.get(0).getPhone_num());
+                    break;
+                case"1":
+                    place_name.setText(placeList.get(1).getTitle());
+                    addr_name.setText(placeList.get(1).getAdd());
+                    phone_name.setText(placeList.get(1).getPhone_num());
+                    break;
+                case"2":
+                    place_name.setText(placeList.get(2).getTitle());
+                    addr_name.setText(placeList.get(2).getAdd());
+                    phone_name.setText(placeList.get(2).getPhone_num());
+                    break;
+                case"3":
+                    place_name.setText(placeList.get(3).getTitle());
+                    addr_name.setText(placeList.get(3).getAdd());
+                    phone_name.setText(placeList.get(3).getPhone_num());
+                    break;
+
+                case"4":
+                    place_name.setText(placeList.get(4).getTitle());
+                    addr_name.setText(placeList.get(4).getAdd());
+                    phone_name.setText(placeList.get(4).getPhone_num());
+                    break;
+                case"5":
+                    place_name.setText(placeList.get(5).getTitle());
+                    addr_name.setText(placeList.get(5).getAdd());
+                    phone_name.setText(placeList.get(5).getPhone_num());
+                    break;
+                case"6":
+                    place_name.setText(placeList.get(6).getTitle());
+                    addr_name.setText(placeList.get(6).getAdd());
+                    phone_name.setText(placeList.get(6).getPhone_num());
+                    break;
+
+                case"7":
+                    place_name.setText(placeList.get(7).getTitle());
+                    addr_name.setText(placeList.get(7).getAdd());
+                    phone_name.setText(placeList.get(7).getPhone_num());
+                    break;
+
+                case"8":
+                    place_name.setText(placeList.get(8).getTitle());
+                    addr_name.setText(placeList.get(8).getAdd());
+                    phone_name.setText(placeList.get(8).getPhone_num());
+                    break;
+
+                case"9":
+                    place_name.setText(placeList.get(9).getTitle());
+                    addr_name.setText(placeList.get(9).getAdd());
+                    phone_name.setText(placeList.get(9).getPhone_num());
+                    break;
+            }
+
+
         }
     }
+
+
+    private String getTime(){
+        mNow = System.currentTimeMillis();
+        mDate = new Date(mNow);
+        return mFormat.format(mDate);
+    }
+
 }

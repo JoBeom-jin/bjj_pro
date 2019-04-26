@@ -7,6 +7,7 @@ import android.os.Handler;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 
+import com.example.myapplication.models.MarkerItem;
 import com.example.myapplication.models.Place;
 
 import io.realm.Realm;
@@ -19,11 +20,12 @@ public class IntroActivity extends AppCompatActivity {
     Runnable r;
 
 
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_intro);
+
+
 
 
         Realm.init(this);
