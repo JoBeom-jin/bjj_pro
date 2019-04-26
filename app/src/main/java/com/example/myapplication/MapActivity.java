@@ -153,8 +153,8 @@ public class MapActivity extends AppCompatActivity
 
 
 
-        map.moveCamera(CameraUpdateFactory.newLatLng(gg));
-        map.animateCamera(CameraUpdateFactory.zoomTo(17));
+        map.moveCamera(CameraUpdateFactory.newLatLngZoom(gg, 17));
+
 
 
     }
