@@ -7,7 +7,11 @@ import android.graphics.drawable.BitmapDrawable;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
+import android.widget.AdapterView;
+import android.widget.ArrayAdapter;
 import android.widget.Button;
+import android.widget.ListView;
+import android.widget.Toast;
 
 import com.example.myapplication.models.MarkerItem;
 import com.example.myapplication.models.Place;
@@ -33,8 +37,13 @@ public class MapActivity extends AppCompatActivity
     Button home_bt2;
     Button menu_bt5;
     Button menu_bt4;
+    ListView map_list;
+
+    ArrayList<String> map_string = new ArrayList<String>();
 
     private Realm realm = Realm.getDefaultInstance();
+
+    final RealmResults<MarkerItem> results = realm.where(MarkerItem.class).findAll();
 
 
 
@@ -102,19 +111,24 @@ public class MapActivity extends AppCompatActivity
         menu_bt5 = (Button) findViewById(R.id.menu_bt5);
         menu_bt4 = (Button) findViewById(R.id.menu_bt4);
 
+        map_list = (ListView) findViewById(R.id.map_list);
+
 
         menu_bt1.setOnClickListener(menu1_click);
         menu_bt2.setOnClickListener(menu2_click);
         home_bt2.setOnClickListener(home_click);
         menu_bt5.setOnClickListener(menu5_click);
         menu_bt4.setOnClickListener(menu4_click);
+
+
+
     }
 
 
     @Override
     public void onMapReady(final GoogleMap map) {
 
-        final RealmResults<MarkerItem> results = realm.where(MarkerItem.class).findAll();
+
 
         ArrayList<MarkerItem> sample = new ArrayList();
 
@@ -122,6 +136,21 @@ public class MapActivity extends AppCompatActivity
             sample.add(markerItem);
         }
 
+
+
+
+
+
+        for (int i=0; i<sample.size(); i++){
+            map_string.add(sample.get(i).getTitle());
+        }
+
+        ArrayAdapter<String> Adapter;
+        Adapter = new ArrayAdapter<String>(this, android.R.layout.simple_list_item_1, map_string);
+
+        map_list.setAdapter(Adapter);
+
+        map_list.setOnItemClickListener(item_click);
 
 
 
@@ -161,7 +190,15 @@ public class MapActivity extends AppCompatActivity
 
 
 
+    AdapterView.OnItemClickListener item_click = new AdapterView.OnItemClickListener() {
+        @Override
+        public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+            LatLng gg1 = new LatLng(37.403881, 126.931123);
 
+
+            Toast.makeText(MapActivity.this, map_string.get(position), Toast.LENGTH_SHORT).show();
+        }
+    };
 
 
 

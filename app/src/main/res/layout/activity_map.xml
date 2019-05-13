@@ -1,4 +1,11 @@
 <?xml version="1.0" encoding="utf-8"?>
+
+<android.support.v4.widget.DrawerLayout
+    android:id="@+id/draw"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:android="http://schemas.android.com/apk/res/android" >
+
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
@@ -52,11 +59,28 @@
 
     </LinearLayout>
 
-    <fragment
-        android:id="@+id/map"
+
+    <FrameLayout
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        class="com.google.android.gms.maps.MapFragment"/>
+        android:layout_height="match_parent">
+
+        <fragment
+            android:id="@+id/map"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            class="com.google.android.gms.maps.MapFragment"/>
+
+
+        <Button
+            android:id="@+id/btn_draw_State"
+            android:layout_width="60dp"
+            android:layout_height="60dp"
+            android:layout_gravity="right|top"
+            android:background="@drawable/map_search"
+            android:layout_marginTop="410dp"
+            android:layout_marginRight="12dp" />
+
+    </FrameLayout>
 
 
 
@@ -64,3 +88,26 @@
 
 
 </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="250dp"
+        android:layout_height="match_parent"
+        android:layout_gravity="start"
+        android:background="@color/draw_back"
+        android:orientation="vertical"
+        android:id="@+id/drawer1">
+        
+        
+        <EditText
+            android:layout_width="match_parent"
+            android:layout_height="70dp" />
+
+
+    <ListView
+        android:id="@+id/map_list"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"></ListView>
+
+    </LinearLayout>
+
+</android.support.v4.widget.DrawerLayout>

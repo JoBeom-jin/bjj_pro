@@ -5,4 +5,5 @@
     <color name="colorAccent">#D81B60</color>
     <color name="fontblack">#000000</color>
     <color name="hidden">#00ff0000</color>
+    <color name="draw_back">#ffffff</color>
 </resources>
