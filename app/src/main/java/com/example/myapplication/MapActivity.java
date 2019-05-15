@@ -4,8 +4,10 @@ import android.app.FragmentManager;
 import android.content.Intent;
 import android.graphics.Bitmap;
 import android.graphics.drawable.BitmapDrawable;
+import android.support.v4.widget.DrawerLayout;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.view.Gravity;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
@@ -37,7 +39,9 @@ public class MapActivity extends AppCompatActivity
     Button home_bt2;
     Button menu_bt5;
     Button menu_bt4;
+    Button map_search;
     ListView map_list;
+    CustomAdapter adapter;
 
     ArrayList<String> map_string = new ArrayList<String>();
 
@@ -110,6 +114,7 @@ public class MapActivity extends AppCompatActivity
         home_bt2 = (Button) findViewById(R.id.menu_bt3);
         menu_bt5 = (Button) findViewById(R.id.menu_bt5);
         menu_bt4 = (Button) findViewById(R.id.menu_bt4);
+        map_search = (Button) findViewById(R.id.map_search);
 
         map_list = (ListView) findViewById(R.id.map_list);
 
@@ -119,6 +124,16 @@ public class MapActivity extends AppCompatActivity
         home_bt2.setOnClickListener(home_click);
         menu_bt5.setOnClickListener(menu5_click);
         menu_bt4.setOnClickListener(menu4_click);
+
+
+        map_search.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                DrawerLayout draw = (DrawerLayout) findViewById(R.id.draw);
+
+                draw.openDrawer(Gravity.LEFT);
+            }
+        });
 
 
 
@@ -138,17 +153,9 @@ public class MapActivity extends AppCompatActivity
 
 
 
+        adapter = new CustomAdapter(results);
 
-
-
-        for (int i=0; i<sample.size(); i++){
-            map_string.add(sample.get(i).getTitle());
-        }
-
-        ArrayAdapter<String> Adapter;
-        Adapter = new ArrayAdapter<String>(this, android.R.layout.simple_list_item_1, map_string);
-
-        map_list.setAdapter(Adapter);
+        map_list.setAdapter(adapter);
 
         map_list.setOnItemClickListener(item_click);
 
