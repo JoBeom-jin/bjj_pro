@@ -21,7 +21,7 @@ public class GMPage extends Activity {
     View.OnClickListener page_go = new View.OnClickListener() {
         @Override
         public void onClick(View v) {
-            if(password.getText().toString().equals("0924")){
+            if(password.getText().toString().equals("09241")){
                 Intent i = new Intent(getApplicationContext(), DBActivity.class);
                 startActivity(i);
                 finish();
