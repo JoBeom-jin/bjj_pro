@@ -75,8 +75,6 @@ public class CustomAdapter extends BaseAdapter {
         MarkerItem item = new MarkerItem();
 
         item.setTitle(title);
-        item.setLat(lat);
-        item.setLon(lon);
 
         listViewItemList.add(item);
     }

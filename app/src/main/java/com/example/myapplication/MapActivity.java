@@ -43,7 +43,11 @@ public class MapActivity extends AppCompatActivity
     ListView map_list;
     CustomAdapter adapter;
 
+    GoogleMap map;
+
     ArrayList<String> map_string = new ArrayList<String>();
+
+    ArrayList<MarkerItem> sample = new ArrayList();
 
     private Realm realm = Realm.getDefaultInstance();
 
@@ -141,11 +145,11 @@ public class MapActivity extends AppCompatActivity
 
 
     @Override
-    public void onMapReady(final GoogleMap map) {
+    public void onMapReady(GoogleMap map) {
+
+        this.map = map;
 
 
-
-        ArrayList<MarkerItem> sample = new ArrayList();
 
         for (MarkerItem markerItem : results) {
             sample.add(markerItem);
@@ -193,6 +197,9 @@ public class MapActivity extends AppCompatActivity
 
 
 
+
+
+
     }
 
 
@@ -200,10 +207,15 @@ public class MapActivity extends AppCompatActivity
     AdapterView.OnItemClickListener item_click = new AdapterView.OnItemClickListener() {
         @Override
         public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
-            LatLng gg1 = new LatLng(37.403881, 126.931123);
+            LatLng gg1 = new LatLng(sample.get(position).getLat(), sample.get(position).getLon());
+
+            map.moveCamera(CameraUpdateFactory.newLatLngZoom(gg1, 17));
+
+            DrawerLayout draw = (DrawerLayout) findViewById(R.id.draw);
+
+            draw.closeDrawer(Gravity.LEFT);
 
 
-            Toast.makeText(MapActivity.this, map_string.get(position), Toast.LENGTH_SHORT).show();
         }
     };
 
