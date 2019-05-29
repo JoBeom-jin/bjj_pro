@@ -31,6 +31,7 @@ public class RecommendActivity extends AppCompatActivity {
     Button home_bt2;
     Button menu_bt5;
     Button menu_bt4;
+    Button money_recommend;
 
     TextView place_name;
     TextView phone_name;
@@ -92,6 +93,15 @@ public class RecommendActivity extends AppCompatActivity {
         }
     };
 
+
+    View.OnClickListener money_click = new View.OnClickListener() {
+        @Override
+        public void onClick(View v) {
+            Intent i = new Intent(getApplicationContext(), MoneyActivity.class);
+            startActivity(i);
+        }
+    };
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -108,6 +118,7 @@ public class RecommendActivity extends AppCompatActivity {
         home_bt2 = (Button) findViewById(R.id.menu_bt3);
         menu_bt5 = (Button) findViewById(R.id.menu_bt5);
         menu_bt4 = (Button) findViewById(R.id.menu_bt4);
+        money_recommend = (Button) findViewById(R.id.money_recommend);
 
 
         menu_bt1.setOnClickListener(menu1_click);
@@ -115,6 +126,7 @@ public class RecommendActivity extends AppCompatActivity {
         home_bt2.setOnClickListener(home_click);
         menu_bt4.setOnClickListener(menu4_click);
         menu_bt5.setOnClickListener(menu5_click);
+        money_recommend.setOnClickListener(money_click);
 
 
         date_text.setText(getTime());

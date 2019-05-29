@@ -177,7 +177,7 @@ public class TitleActivity extends AppCompatActivity {
             MarkerItem place5 = realm.createObject(MarkerItem.class);
             place5.setTitle("수원 화성");
             place5.setAdd("경기도 수원시 팔달구 장안동 1-2");
-            place5.setPhone_num("");
+            place5.setPhone_num(" ");
             place5.setLat(37.288532);
             place5.setLon(127.013939);
 
@@ -199,7 +199,7 @@ public class TitleActivity extends AppCompatActivity {
             MarkerItem place8 = realm.createObject(MarkerItem.class);
             place8.setTitle("동묘시장");
             place8.setAdd("서울특별시 종로구 숭인2동");
-            place8.setPhone_num("");
+            place8.setPhone_num(" ");
             place8.setLat(37.573309);
             place8.setLon(127.017610);
 

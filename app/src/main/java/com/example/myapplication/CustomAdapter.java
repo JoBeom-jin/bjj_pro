@@ -55,6 +55,8 @@ public class CustomAdapter extends BaseAdapter {
         latTextView.setText(Double.toString(listViewItem.getLat()));
         lonTextView.setText(Double.toString(listViewItem.getLon()));
 
+
+
         return convertView;
     }
 

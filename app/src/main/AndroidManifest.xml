@@ -15,16 +15,15 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-
+        <activity android:name=".MoneyActivity"
+            android:theme="@android:style/Theme.DeviceDefault.Light.Dialog" />
         <activity android:name=".DBActivity" />
         <activity
             android:name=".GMPage"
             android:theme="@android:style/Theme.DeviceDefault.Light.Dialog" />
-
         <activity
             android:name=".PlacepopupActivity"
             android:theme="@android:style/Theme.DeviceDefault.Light.Dialog" />
-
         <activity android:name=".RecommendActivity" />
         <!--
              The API key for Google Maps-based APIs is defined as a string resource.

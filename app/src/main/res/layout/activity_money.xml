@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="300dp"
+    android:layout_height="400dp"
+    android:orientation="vertical"
+    android:gravity="center"
+    android:background="@drawable/back">
+
+    <EditText
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:layout_marginTop="10dp"
+        android:hint="금액입력"
+        android:id="@+id/money_go"/>
+
+    <Button
+        android:layout_width="150dp"
+        android:layout_height="50dp"
+        android:text="추천 받기"
+        android:layout_marginTop="5dp"
+        android:id="@+id/recommend_bt"/>
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:textColor="@color/fontblack"
+        android:textSize="18dp"
+        android:text="장소"
+        android:id="@+id/place_re_name"/>
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:textColor="@color/fontblack"
+        android:textSize="18dp"
+        android:text="주소"
+        android:id="@+id/place_re_address"/>
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:textColor="@color/fontblack"
+        android:textSize="18dp"
+        android:text="전화번호"
+        android:id="@+id/place_re_num"/>
+
+
+        <Button
+            android:layout_width="150dp"
+            android:layout_height="50dp"
+            android:text="닫기"
+            android:layout_marginTop="5dp"
+            android:id="@+id/recommend_close"/>
+
+
+
+
+
+</LinearLayout>
