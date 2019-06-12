@@ -115,26 +115,7 @@ public class MyActivity extends AppCompatActivity {
         PlaceRecyclerAdapter adapter = new PlaceRecyclerAdapter(results);
         mRecyclerView.setAdapter(adapter);
 
-        Intent i = getIntent();
-        final String position = i.getStringExtra("pos");
 
-
-        if (position == null) {
-
-        } else {
-            realm.executeTransaction(new Realm.Transaction() {
-                @Override
-                public void execute(Realm realm) {
-                    Intent i = getIntent();
-                    int a = Integer.parseInt(i.getStringExtra("pos"));
-                    // remove a single object
-                    Place dog = results.get(a);
-                    dog.deleteFromRealm();
-
-
-                }
-            });
-        }
 
 
         findViewById(R.id.button).setOnClickListener(new View.OnClickListener() {

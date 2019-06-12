@@ -8,6 +8,7 @@ import android.view.Window;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.example.myapplication.models.MarkerItem;
 
@@ -77,6 +78,9 @@ public class MoneyActivity extends Activity {
                 p1.setText(sample.get(6).getTitle());
                 p2.setText(sample.get(6).getAdd());
                 p3.setText(sample.get(6).getPhone_num());
+            }
+            else {
+                Toast.makeText(getApplicationContext(), "다시 입력해주세요!",Toast.LENGTH_SHORT).show();
             }
 
 

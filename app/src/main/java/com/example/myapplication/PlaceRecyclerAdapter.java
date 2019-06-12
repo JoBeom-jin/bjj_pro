@@ -17,6 +17,7 @@ import android.widget.TextView;
 import com.example.myapplication.models.Place;
 
 import io.realm.OrderedRealmCollection;
+import io.realm.Realm;
 import io.realm.RealmRecyclerViewAdapter;
 
 public class PlaceRecyclerAdapter extends RealmRecyclerViewAdapter<Place, PlaceRecyclerAdapter.StudentViewHolder> {
@@ -45,10 +46,10 @@ public class PlaceRecyclerAdapter extends RealmRecyclerViewAdapter<Place, PlaceR
         studentViewHolder.del_bt.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent (v.getContext(), MyActivity.class);
-                intent.putExtra("pos",String.valueOf(position));
-                v.getContext().startActivity(intent);
-                ((Activity)v.getContext()).finish();
+                Realm realm = Realm.getDefaultInstance();
+                realm.beginTransaction();
+                place.deleteFromRealm();
+                realm.commitTransaction();
             }
         });
 

@@ -58,26 +58,26 @@ public class DBActivity extends AppCompatActivity {
         DBRecyclerAdapter adapter = new DBRecyclerAdapter(results);
         recyclerView2.setAdapter(adapter);
 
-        Intent i = getIntent();
-        final String position = i.getStringExtra("pos");
-
-
-        if (position == null) {
-
-        } else {
-            realm.executeTransaction(new Realm.Transaction() {
-                @Override
-                public void execute(Realm realm) {
-                    Intent i = getIntent();
-                    int a = Integer.parseInt(i.getStringExtra("pos"));
-                    // remove a single object
-                    MarkerItem dog = results.get(a);
-                    dog.deleteFromRealm();
-
-
-                }
-            });
-        }
+//        Intent i = getIntent();
+//        final String position = i.getStringExtra("pos");
+//
+//
+//        if (position == null) {
+//
+//        } else {
+//            realm.executeTransaction(new Realm.Transaction() {
+//                @Override
+//                public void execute(Realm realm) {
+//                    Intent i = getIntent();
+//                    int a = Integer.parseInt(i.getStringExtra("pos"));
+//                    // remove a single object
+//                    MarkerItem dog = results.get(a);
+//                    dog.deleteFromRealm();
+//
+//
+//                }
+//            });
+   //     }
 
 
         findViewById(R.id.gm_back).setOnClickListener(new View.OnClickListener() {

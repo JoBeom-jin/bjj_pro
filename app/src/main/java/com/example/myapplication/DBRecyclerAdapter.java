@@ -16,6 +16,7 @@ import com.example.myapplication.models.MarkerItem;
 import com.example.myapplication.models.Place;
 
 import io.realm.OrderedRealmCollection;
+import io.realm.Realm;
 import io.realm.RealmRecyclerViewAdapter;
 
 public class DBRecyclerAdapter extends RealmRecyclerViewAdapter<MarkerItem, DBRecyclerAdapter.StudentViewHolder> {
@@ -46,10 +47,10 @@ public class DBRecyclerAdapter extends RealmRecyclerViewAdapter<MarkerItem, DBRe
         studentViewHolder.del_bt.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent (v.getContext(), DBActivity.class);
-                intent.putExtra("pos",String.valueOf(position));
-                v.getContext().startActivity(intent);
-                ((Activity)v.getContext()).finish();
+                Realm realm = Realm.getDefaultInstance();
+                realm.beginTransaction();
+                markerItem.deleteFromRealm();
+                realm.commitTransaction();
             }
         });
 
