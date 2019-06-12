@@ -13,6 +13,8 @@ Realm DB를 이용한 관광지 추가<br>
 오늘의 관광지, 금액별 추천 기능<br>
 관광지 즐겨찾기 추가 기능<br>
 
+***
+
 # 화면 구성
 ![11](https://user-images.githubusercontent.com/48505760/59330518-a9e5d500-8d2c-11e9-95df-76dd7bc2e5e6.JPG)
 <br>
