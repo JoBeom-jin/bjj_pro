@@ -14,8 +14,9 @@ Realm DB를 이용한 관광지 추가<br>
 관광지 즐겨찾기 추가 기능<br>
 
 # 화면 구성
-![intro_back](https://user-images.githubusercontent.com/48505760/59329499-fd0a5880-8d29-11e9-97d8-7da4d0e38905.png)
-![login](https://user-images.githubusercontent.com/48505760/59330245-e9f88800-8d2b-11e9-90ce-36b0d1d932da.JPG)
+![11](https://user-images.githubusercontent.com/48505760/59330518-a9e5d500-8d2c-11e9-95df-76dd7bc2e5e6.JPG)
+<br>
+![22](https://user-images.githubusercontent.com/48505760/59330536-b4a06a00-8d2c-11e9-85ee-afb69e8b60fc.JPG)
 
 
 
